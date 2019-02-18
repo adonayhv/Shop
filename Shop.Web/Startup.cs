@@ -13,9 +13,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Shop.Web.Data;
 using Shop.Web.Data.Entities;
+using Shop.Web.Helpers;
 
 namespace Shop.Web
 {
+
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -49,7 +52,9 @@ namespace Shop.Web
             //temporala
             services.AddTransient<SeedDb>();
             //permanente
-            services.AddScoped<IRepository, Repository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ICountryRepository, CountryRepository>();
+            services.AddScoped<IUserHelper, UserHelper>();
 
             services.Configure<CookiePolicyOptions>(options =>
             {
