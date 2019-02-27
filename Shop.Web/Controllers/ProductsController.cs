@@ -6,6 +6,7 @@ namespace Shop.Web.Controllers
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,7 @@ namespace Shop.Web.Controllers
     using Shop.Web.Helpers;
     using Shop.Web.Models;
 
+    [Authorize]
     public class ProductsController : Controller
     {
         private readonly IProductRepository productRepository;
@@ -83,8 +85,9 @@ namespace Shop.Web.Controllers
 
                 var product = this.ToProduct(view, path);
 
-                // TODO: Pending to change to: this.User.Identity.Name
-                product.User = await this.userHelper.GetUserByEmailAsync("jzuluaga55@gmail.com");
+          
+
+                product.User = await this.userHelper.GetUserByEmailAsync(this.User.Identity.Name);
                 await this.productRepository.CreateAsync(product);
                 return RedirectToAction(nameof(Index));
             }
@@ -174,8 +177,8 @@ namespace Shop.Web.Controllers
                     var product = this.ToProduct(view, path);
 
 
-                    // TODO: Pending to change to: this.User.Identity.Name
-                    product.User = await this.userHelper.GetUserByEmailAsync("jzuluaga55@gmail.com");
+                   
+                    product.User = await this.userHelper.GetUserByEmailAsync(this.User.Identity.Name);
                     await this.productRepository.UpdateAsync(product);
                 }
                 catch (DbUpdateConcurrencyException)

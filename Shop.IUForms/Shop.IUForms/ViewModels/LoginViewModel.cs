@@ -3,8 +3,8 @@
 namespace Shop.IUForms.ViewModels
 {
     using GalaSoft.MvvmLight.Command;
-
-using System.Windows.Input;
+    using Shop.IUForms.Views;
+    using System.Windows.Input;
 using Xamarin.Forms;
     public class LoginViewModel
     {
@@ -59,13 +59,16 @@ using Xamarin.Forms;
                    );
                 return;
             }
-            await Application.Current.MainPage.DisplayAlert(
-                  "Ok",
-                  "Fuck yeah!!!",
-                  "Acept"
+            //await Application.Current.MainPage.DisplayAlert(
+            //      "Ok",
+            //      "Fuck yeah!!!",
+            //      "Acept"
 
-                  );
-            return;
+            //      );
+            //return;
+
+            MainViewModel.GetInstance().Products = new ProductsViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new ProductsPage());
         }
     }
 }

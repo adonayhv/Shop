@@ -1,4 +1,5 @@
-﻿using Shop.IUForms.Views;
+﻿using Shop.IUForms.ViewModels;
+using Shop.IUForms.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,6 +12,7 @@ namespace Shop.IUForms
         public App()
         {
             InitializeComponent();
+            MainViewModel.GetInstance().Login = new LoginViewModel();
 
             MainPage = new NavigationPage(new LoginPage());
         }

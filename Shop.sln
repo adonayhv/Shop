@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.Common", "Shop.Common\Shop.Common.csproj", "{7A58A5D9-16F4-40FB-89CD-D022B06F1B29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.Common", "Shop.Common\Shop.Common.csproj", "{7A58A5D9-16F4-40FB-89CD-D022B06F1B29}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{7F87A634-10EE-46F9-8F94-1885805D46EA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{DDAA260D-89B3-4AE6-BDA7-C18A3B1C4CC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.Web", "Shop.Web\Shop.Web.csproj", "{CBB95457-E019-487D-922F-B6EF9F23E864}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.Web", "Shop.Web\Shop.Web.csproj", "{CBB95457-E019-487D-922F-B6EF9F23E864}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Forms", "Forms", "{F442BCE6-8B0F-41AB-AB1D-2496FD2B23EB}"
 EndProject
@@ -19,9 +19,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.IUForms.Android", "Sho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.IUForms.iOS", "Shop.IUForms\Shop.IUForms.iOS\Shop.IUForms.iOS.csproj", "{F5C26D86-2D1C-4189-BCA4-7CDADBABCAFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.IUForms", "Shop.IUForms\Shop.IUForms\Shop.IUForms.csproj", "{07DA452F-4C4A-4D0F-842A-FBD4EE220635}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.IUForms", "Shop.IUForms\Shop.IUForms\Shop.IUForms.csproj", "{07DA452F-4C4A-4D0F-842A-FBD4EE220635}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.UIClassic", "Shop.UIClassic\Shop.UIClassic.csproj", "{BB7E4CC4-09BA-4B77-B313-18DD6DCDC0B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.UIClassic", "Shop.UIClassic\Shop.UIClassic.csproj", "{BB7E4CC4-09BA-4B77-B313-18DD6DCDC0B2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.UIClassic.Android", "Shop.UIClassic.Android\Shop.UIClassic.Android.csproj", "{AD59FC40-EDC9-424F-AF30-702B4ADF7315}"
 EndProject
@@ -138,6 +138,7 @@ Global
 		{F5C26D86-2D1C-4189-BCA4-7CDADBABCAFE}.AppStore|iPhoneSimulator.ActiveCfg = AppStore|iPhoneSimulator
 		{F5C26D86-2D1C-4189-BCA4-7CDADBABCAFE}.AppStore|iPhoneSimulator.Build.0 = AppStore|iPhoneSimulator
 		{F5C26D86-2D1C-4189-BCA4-7CDADBABCAFE}.Debug|Any CPU.ActiveCfg = Debug|iPhone
+		{F5C26D86-2D1C-4189-BCA4-7CDADBABCAFE}.Debug|Any CPU.Build.0 = Debug|iPhone
 		{F5C26D86-2D1C-4189-BCA4-7CDADBABCAFE}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{F5C26D86-2D1C-4189-BCA4-7CDADBABCAFE}.Debug|iPhone.Build.0 = Debug|iPhone
 		{F5C26D86-2D1C-4189-BCA4-7CDADBABCAFE}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
@@ -244,6 +245,7 @@ Global
 		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.AppStore|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.AppStore|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Debug|Any CPU.ActiveCfg = Debug|iPhone
+		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Debug|Any CPU.Build.0 = Debug|iPhone
 		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Debug|iPhone.Build.0 = Debug|iPhone
 		{80A96B52-6758-4BDB-B0B4-CEA4CA155C60}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
