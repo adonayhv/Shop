@@ -38,8 +38,8 @@ namespace Shop.IUForms.ViewModels
         {
             this.IsRefreshing = true;
             var response = await this.apiService.GetListAsync<Product>(
-                "http://localhost:63720",
-                "/API",
+                "https://192.168.0.112:8090",
+                "/api",
                 "/Products"
                 );
             this.IsRefreshing = false;

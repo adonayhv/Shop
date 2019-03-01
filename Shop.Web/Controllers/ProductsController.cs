@@ -15,7 +15,7 @@ namespace Shop.Web.Controllers
     using Shop.Web.Helpers;
     using Shop.Web.Models;
 
-    [Authorize]
+  
     public class ProductsController : Controller
     {
         private readonly IProductRepository productRepository;
@@ -52,6 +52,7 @@ namespace Shop.Web.Controllers
         }
 
         // GET: Products/Create
+        //[Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -111,7 +112,7 @@ namespace Shop.Web.Controllers
             };
 
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Products/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -197,7 +198,7 @@ namespace Shop.Web.Controllers
 
             return View(view);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Products/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

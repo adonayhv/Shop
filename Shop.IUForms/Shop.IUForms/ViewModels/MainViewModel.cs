@@ -12,10 +12,15 @@ namespace Shop.IUForms.ViewModels
 
         public ProductsViewModel Products { get; set; }
 
+
+
         public MainViewModel()
         {
             instance = this;
         }
+
+
+
         public static MainViewModel GetInstance()
         {
             if (instance==null)

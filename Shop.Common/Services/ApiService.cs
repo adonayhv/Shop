@@ -11,7 +11,10 @@ namespace Shop.Common.Services
 
     public class ApiService
     {
-        public async Task<Response> GetListAsync<T>(string urlBase, string servicePrefix, string controller)
+        public async Task<Response> GetListAsync<T>(
+            string urlBase, 
+            string servicePrefix, 
+            string controller)
         {
             try
             {
@@ -20,7 +23,9 @@ namespace Shop.Common.Services
                     BaseAddress = new Uri(urlBase)
                 };
                 var url = $"{servicePrefix}{controller}";
-                var response = await client.GetAsync(url);
+                 var response = await client.GetAsync(url);
+               // var response = await client.GetAsync("/api/Products");
+              
                 var result = await response.Content.ReadAsStringAsync();
 
                 if (!response.IsSuccessStatusCode)
