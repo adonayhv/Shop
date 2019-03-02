@@ -50,13 +50,10 @@ namespace Shop.IUForms.ViewModels
                     response.Message,
                     "Accept");
                 return;
-               
+
             }
             var myProducts = (List<Product>)response.Result;
             this.Products = new ObservableCollection<Product>(myProducts);
         }
     }
 }
-
-
-
