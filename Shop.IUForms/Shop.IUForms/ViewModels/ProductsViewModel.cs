@@ -1,4 +1,4 @@
-﻿
+
 using Shop.Common.Models;
 using Shop.Common.Services;
 using System;
@@ -38,7 +38,7 @@ namespace Shop.IUForms.ViewModels
         {
             this.IsRefreshing = true;
             var response = await this.apiService.GetListAsync<Product>(
-                "http://localhost:63720",
+               "https://localhost:44320",
                 "/API",
                 "/Products"
                 );
@@ -57,3 +57,6 @@ namespace Shop.IUForms.ViewModels
         }
     }
 }
+
+
+
