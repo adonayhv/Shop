@@ -39,20 +39,22 @@ namespace Shop.Web.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return new NotFoundViewResult("ProductNotFound");
+
             }
 
             var product = await this.productRepository.GetByIdAsync(id.Value);
             if (product == null)
             {
-                return NotFound();
+                return new NotFoundViewResult("ProductNotFound");
+
             }
 
             return View(product);
         }
 
         // GET: Products/Create
-        //[Authorize(Roles = "Admin")]
+       [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -225,5 +227,14 @@ namespace Shop.Web.Controllers
             await this.productRepository.DeleteAsync(product);
             return RedirectToAction(nameof(Index));
         }
+
+
+
+        public IActionResult ProductNotFound()
+        {
+            return this.View();
+        }
+
+
     }
 }

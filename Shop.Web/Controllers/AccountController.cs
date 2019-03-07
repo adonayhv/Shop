@@ -240,6 +240,10 @@ namespace Shop.Web.Controllers
         }
 
 
+        public IActionResult NotAuthorized()
+        {
+            return this.View();
+        }
 
 
     }
