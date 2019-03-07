@@ -29,9 +29,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
-    <AotAssemblies>false</AotAssemblies>
-    <EnableLLVM>false</EnableLLVM>
-    <BundleAssemblies>false</BundleAssemblies>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -96,7 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Shop.IUForms\Shop.IUForms.csproj">
-      <Project>{66386BD4-1926-4BB9-998C-27A8493C6E47}</Project>
+      <Project>{07DA452F-4C4A-4D0F-842A-FBD4EE220635}</Project>
       <Name>Shop.IUForms</Name>
     </ProjectReference>
   </ItemGroup>

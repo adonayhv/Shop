@@ -1,4 +1,4 @@
-﻿
+
 using Shop.Common.Models;
 using Shop.Common.Services;
 using System;
@@ -38,8 +38,8 @@ namespace Shop.IUForms.ViewModels
         {
             this.IsRefreshing = true;
             var response = await this.apiService.GetListAsync<Product>(
-                "https://192.168.0.112:8090",
-                "/api",
+               "https://localhost:44320",
+                "/API",
                 "/Products"
                 );
             this.IsRefreshing = false;
@@ -50,7 +50,7 @@ namespace Shop.IUForms.ViewModels
                     response.Message,
                     "Accept");
                 return;
-               
+
             }
             var myProducts = (List<Product>)response.Result;
             this.Products = new ObservableCollection<Product>(myProducts);
