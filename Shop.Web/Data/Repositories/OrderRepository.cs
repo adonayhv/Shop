@@ -2,6 +2,7 @@
 
 namespace Shop.Web.Data.Repositories
 {
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
     using Entities;
@@ -46,6 +47,7 @@ namespace Shop.Web.Data.Repositories
             if (await this.userHelper.IsUserInRoleAsync(user, "Admin"))
             {
                 return this.context.Orders
+                    .Include(o => o.User)
                     .Include(o => o.Items)
                     .ThenInclude(i => i.Product)
                     .OrderByDescending(o => o.OrderDate);
@@ -124,6 +126,49 @@ namespace Shop.Web.Data.Repositories
 
             this.context.OrderDetailTemps.Remove(orderDetailTemp);
             await this.context.SaveChangesAsync();
+        }
+
+        /// <summary>
+        /// Para almacenar la orden en persistencia 
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
+        public async Task<bool> ConfirmOrderAsync(string userName)
+        {
+            var user = await this.userHelper.GetUserByEmailAsync(userName);
+            if (user == null)
+            {
+                return false;
+            }
+
+            var orderTmps = await this.context.OrderDetailTemps
+                .Include(o => o.Product)
+                .Where(o => o.User == user)
+                .ToListAsync();
+
+            if (orderTmps == null || orderTmps.Count == 0)
+            {
+                return false;
+            }
+
+            var details = orderTmps.Select(o => new OrderDetail
+            {
+                Price = o.Price,
+                Product = o.Product,
+                Quantity = o.Quantity
+            }).ToList();
+
+            var order = new Order
+            {
+                OrderDate = DateTime.UtcNow,
+                User = user,
+                Items = details,
+            };
+
+            this.context.Orders.Add(order);
+            this.context.OrderDetailTemps.RemoveRange(orderTmps);
+            await this.context.SaveChangesAsync();
+            return true;
         }
 
 
