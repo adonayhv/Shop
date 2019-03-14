@@ -15,6 +15,8 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
         public DbSet<Product> Products { get; set; }
         //ENTIDAD COUNTRY
         public DbSet<Country> Countries { get; set; }
+        public DbSet<City> Cities { get; set; }
+
 
         public DbSet<Order> Orders { get; set; }
 

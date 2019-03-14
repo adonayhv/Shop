@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Shop.Web.Controllers.API
 {
     [Route("api/[Controller]")]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+   // [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 
     public class ProductsController: Controller
     {

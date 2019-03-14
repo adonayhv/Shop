@@ -34,6 +34,25 @@ namespace Shop.Web.Data
             await this.userHelper.CheckRoleAsync("Customer");
 
 
+            if (!this.context.Countries.Any())
+            {
+                var cities = new List<City>();
+                cities.Add(new City { Name = "Medellín" });
+                cities.Add(new City { Name = "Bogotá" });
+                cities.Add(new City { Name = "Calí" });
+
+                this.context.Countries.Add(new Country
+                {
+                    Cities = cities,
+                    Name = "Colombia"
+                });
+
+                await this.context.SaveChangesAsync();
+            }
+
+
+
+
             var user = await this.userHelper.GetUserByEmailAsync("adonayhv@gmail.com");
             if (user == null)
             {
@@ -43,7 +62,11 @@ namespace Shop.Web.Data
                     LastName = "Herrera",
                     Email = "adonayhv@gmail.com",
                     UserName = "adonayhv@gmail.com",
-                    PhoneNumber="77018998"
+                    PhoneNumber="77018998",
+                    Address = "Calle Luna Calle Sol",
+                    CityId = this.context.Countries.FirstOrDefault().Cities.FirstOrDefault().Id,
+                    City = this.context.Countries.FirstOrDefault().Cities.FirstOrDefault()
+
                 };
 
                 var result = await this.userHelper.AddUserAsync(user, "123456");

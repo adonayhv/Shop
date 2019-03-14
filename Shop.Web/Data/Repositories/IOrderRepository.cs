@@ -19,6 +19,12 @@ namespace Shop.Web.Data.Repositories
 
         Task<bool> ConfirmOrderAsync(string userName);
 
+
+        Task DeliverOrder(DeliverViewModel model);
+        //sobrecargado
+        Task<Order> GetOrdersAsync(int id);
+
+
     }
 
 
