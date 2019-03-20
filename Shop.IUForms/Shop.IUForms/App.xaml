@@ -6,7 +6,12 @@
              x:Class="Shop.IUForms.App">
     <Application.Resources>
         <ResourceDictionary>
+            <!-- Locator -->
             <infra:InstanceLocator x:Key="Locator"/>
+
+            <!-- Parameters -->
+            <x:String x:Key="UrlAPI">http://192.168.0.117:8090</x:String>
+
         </ResourceDictionary>
 
     </Application.Resources>

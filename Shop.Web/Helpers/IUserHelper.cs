@@ -7,7 +7,9 @@ using Data.Entities;
 using Models;
 
 using System.Threading.Tasks;
- public   interface IUserHelper
+    using System.Collections.Generic;
+
+    public   interface IUserHelper
     {
         Task<User> GetUserByEmailAsync(string email);
 
@@ -41,6 +43,14 @@ using System.Threading.Tasks;
         Task<string> GeneratePasswordResetTokenAsync(User user);
 
         Task<IdentityResult> ResetPasswordAsync(User user, string token, string password);
+
+
+
+        Task<List<User>> GetAllUsersAsync();
+
+        Task RemoveUserFromRoleAsync(User user, string roleName);
+
+        Task DeleteUserAsync(User user);
 
 
     }

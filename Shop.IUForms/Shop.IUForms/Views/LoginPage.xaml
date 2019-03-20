@@ -30,9 +30,15 @@
                    IsPassword="True">
 
                 </Entry>
+                <ActivityIndicator
+                	IsRunning="{Binding IsRunning}">
+                </ActivityIndicator>
                 <Button 
-              Text="Login"
-              Command="{Binding LoginCommand}">
+              Command="{Binding LoginCommand}"
+              IsEnabled="{Binding IsEnabled}"
+
+              Text="Login" >
+           
 
                 </Button>
             </StackLayout>

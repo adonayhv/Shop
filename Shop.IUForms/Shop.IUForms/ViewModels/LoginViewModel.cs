@@ -3,11 +3,32 @@
 namespace Shop.IUForms.ViewModels
 {
     using GalaSoft.MvvmLight.Command;
+    using Shop.Common.Models;
+    using Shop.Common.Services;
     using Shop.IUForms.Views;
     using System.Windows.Input;
 using Xamarin.Forms;
-    public class LoginViewModel
+    public class LoginViewModel : BaseViewModel
     {
+        private bool isRunning;
+        private bool isEnabled;
+        private readonly ApiService apiService;
+
+        public bool IsRunning
+        {
+            get => this.isRunning;
+            set => this.SetValue(ref this.isRunning, value);
+        }
+
+        public bool IsEnabled
+        {
+            get => this.isEnabled;
+            set => this.SetValue(ref this.isEnabled, value);
+        }
+
+
+
+    
         public string Email { get; set; }
         public string Password { get; set; }
         public ICommand LoginCommand
@@ -20,8 +41,12 @@ using Xamarin.Forms;
 
         public LoginViewModel()
         {
+            this.apiService = new ApiService();
+           
             this.Email = "adonayhv@gmail.com";
             this.Password = "123456";
+          this.IsEnabled = true;
+
         }
 
         private async void Login()
@@ -49,26 +74,49 @@ using Xamarin.Forms;
                 return;
             }
 
-            if (!this.Email.Equals("adonayhv@gmail.com") || !this.Password.Equals("123456"))
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                   "Error",
-                   "user or  password wrong",
-                   "Acept"
+            //if (!this.Email.Equals("adonayhv@gmail.com") || !this.Password.Equals("123456"))
+            //{
+            //    await Application.Current.MainPage.DisplayAlert(
+            //       "Error",
+            //       "user or  password wrong",
+            //       "Acept"
 
-                   );
+            //       );
+            //    return;
+            //}
+
+
+            this.IsRunning = true;
+            this.IsEnabled = false;
+
+            var request = new TokenRequest
+            {
+                Password = this.Password,
+                Username = this.Email
+            };
+
+            var url = Application.Current.Resources["UrlAPI"].ToString();
+            var response = await this.apiService.GetTokenAsync(
+                url,
+                "/Account",
+                "/CreateToken",
+                request);
+
+            this.IsRunning = false;
+            this.IsEnabled = true;
+
+            if (!response.IsSuccess)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Email or password incorrect.", "Accept");
                 return;
             }
-            //await Application.Current.MainPage.DisplayAlert(
-            //      "Ok",
-            //      "Fuck yeah!!!",
-            //      "Acept"
 
-            //      );
-            //return;
-
-            MainViewModel.GetInstance().Products = new ProductsViewModel();
+            var token = (TokenResponse)response.Result;
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.Token = token;
+            mainViewModel.Products = new ProductsViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new ProductsPage());
+
         }
     }
 }

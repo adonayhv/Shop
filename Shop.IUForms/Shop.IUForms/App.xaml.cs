@@ -1,4 +1,5 @@
-﻿using Shop.IUForms.ViewModels;
+﻿
+using Shop.IUForms.ViewModels;
 using Shop.IUForms.Views;
 using System;
 using Xamarin.Forms;

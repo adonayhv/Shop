@@ -37,12 +37,23 @@ namespace Shop.IUForms.ViewModels
         private async void LoadProducts()
         {
             this.IsRefreshing = true;
+            //antes
+            //var response = await this.apiService.GetListAsync<Product>(
+            //   "http://192.168.0.117:8090",
+            //    "/API",
+            //    "/Products"
+            //    );
+            //this.IsRefreshing = false;
+
+            var url = Application.Current.Resources["UrlAPI"].ToString();
             var response = await this.apiService.GetListAsync<Product>(
-               "http://192.168.0.117:8090",
-                "/API",
-                "/Products"
-                );
-            this.IsRefreshing = false;
+                url,
+                "/api",
+                "/Products",
+                "bearer",
+                MainViewModel.GetInstance().Token.Token);
+
+
             if (!response.IsSuccess)
             {
                 await Application.Current.MainPage.DisplayAlert(
