@@ -9,6 +9,11 @@
             BindingContext="{Binding Login}">
             <StackLayout
                 Padding="8">
+                <Image
+                    HeightRequest="150"
+                    Source="shop">
+                </Image>
+
                 <Label
                     Text="Email">
 
@@ -31,16 +36,20 @@
 
                 </Entry>
                 <ActivityIndicator
-                	IsRunning="{Binding IsRunning}">
+                	IsRunning="{Binding IsRunning}"
+                    VerticalOptions="CenterAndExpand">
+
                 </ActivityIndicator>
-                <Button 
-              Command="{Binding LoginCommand}"
-              IsEnabled="{Binding IsEnabled}"
-
-              Text="Login" >
-           
-
+                <Button
+                    BackgroundColor="Navy"
+                    BorderRadius="23"
+                    Command="{Binding LoginCommand}"
+                    HeightRequest="46"
+                    IsEnabled="{Binding IsEnabled}"
+                    Text="Login"
+                    TextColor="White">
                 </Button>
+
             </StackLayout>
         </ScrollView>
 

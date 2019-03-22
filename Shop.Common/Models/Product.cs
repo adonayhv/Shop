@@ -13,16 +13,16 @@ using System;
         public string Name { get; set; }
 
         [JsonProperty("price")]
-        public long Price { get; set; }
+        public decimal Price { get; set; }
 
         [JsonProperty("imageUrl")]
         public string ImageUrl { get; set; }
 
         [JsonProperty("lastPurchase")]
-        public object LastPurchase { get; set; }
+        public DateTime? LastPurchase { get; set; }
 
         [JsonProperty("lastSale")]
-        public object LastSale { get; set; }
+        public DateTime? LastSale { get; set; }
 
         [JsonProperty("isAvailabe")]
         public bool IsAvailabe { get; set; }

@@ -10,6 +10,9 @@ namespace Shop.IUForms
 {
     public partial class App : Application
     {
+        public static INavigation Navigator { get; internal set; }
+        public static MasterPage Master { get; internal set; }
+
         public App()
         {
             InitializeComponent();

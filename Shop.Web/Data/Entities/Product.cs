@@ -44,7 +44,7 @@ using System.ComponentModel.DataAnnotations;
                 {
                     return null;
                 }
-                return $"http://192.168.0.117:8090{this.ImageUrl.Substring(1)}";
+                return $"http://192.168.0.112:8090{this.ImageUrl.Substring(1)}";
 
             }
 

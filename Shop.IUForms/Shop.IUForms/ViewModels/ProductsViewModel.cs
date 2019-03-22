@@ -39,7 +39,7 @@ namespace Shop.IUForms.ViewModels
             this.IsRefreshing = true;
             //antes
             //var response = await this.apiService.GetListAsync<Product>(
-            //   "http://192.168.0.117:8090",
+            //   "http://192.168.0.112:8090",
             //    "/API",
             //    "/Products"
             //    );
